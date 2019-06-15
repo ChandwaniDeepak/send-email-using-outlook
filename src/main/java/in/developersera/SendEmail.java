@@ -9,9 +9,10 @@ public class SendEmail {
 
     public static void main(String[] args) {
 
-        final String PASS = System.getenv("PASS_OUTLOOK");
-        final String EMAIL_TO = System.getenv("EMAIL_TO");
-        final String USERNAME = System.getenv("FROM");
+        final String USERNAME = "your_email@outlook.com:;
+        final String PASS = "PASSWORD";
+        
+        final String EMAIL_TO = "email_to@gmail.com";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -35,7 +36,7 @@ public class SendEmail {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(EMAIL_TO));   // like something@gmail.com
             message.setSubject("Test");
-            message.setText("Hi you have done sending mail with outlook");
+            message.setText("Hi email sent successfully using outlook");
 
             Transport.send(message);
 
